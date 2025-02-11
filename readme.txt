@@ -1,13 +1,19 @@
 Bonjour !
 Je m'appelle Jérémy Rolland gdfgdf
 
-# Mon Projet
+classDiagram
+    class Lock {
+        +void unlock()
+    }
 
-Voici un simple diagramme de flux :
+    class KeyLock {
+        +void unlock()
+    }
 
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    class FingerprintScanner {
+        +void scanFingerprint()
+    }
+
+    Lock --> KeyLock : Relation normale
+    Lock ..> FingerprintScanner : <<incompatible>>
+    note for FingerprintScanner "Cette relation est incompatible."
